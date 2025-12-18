@@ -11,8 +11,9 @@ body {
     color: #eaeaea;
 }
 
-/* Fullscreen Header */
+/* Header (mobile first) */
 header {
+    position: relative;
     height: 100vh;
     background: url("images/hero_bg.jpg") center / cover no-repeat;
     display: flex;
@@ -23,6 +24,13 @@ header {
     padding: 1rem;
 }
 
+/* Disable pseudo layers by default */
+header::before,
+header::after {
+    content: none;
+}
+
+/* Header text */
 header h1 {
     font-size: 3rem;
 }
@@ -69,4 +77,41 @@ footer {
     padding: 1rem;
     background: #1a1a24;
     color: #777;
+}
+
+/* Mobile interaction */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header:active {
+        filter: brightness(1.05);
+    }
+}
+
+/* Desktop: blurred background + contain foreground */
+@media (min-width: 1024px) {
+    header {
+        background: none;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("images/hero_bg.jpg") center / cover no-repeat;
+        filter: blur(20px) brightness(0.7);
+        transform: scale(1.1);
+        z-index: -2;
+    }
+
+    header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("images/hero_bg.jpg") center / contain no-repeat;
+        z-index: -1;
+    }
 }
