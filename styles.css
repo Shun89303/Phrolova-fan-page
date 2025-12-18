@@ -11,6 +11,34 @@ body {
     color: #eaeaea;
 }
 
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* Header (mobile first) */
 header {
     position: relative;
@@ -22,6 +50,7 @@ header {
     align-items: center;
     text-align: center;
     padding: 1rem;
+    padding-top: 3rem; /* space for navbar */
 }
 
 /* Disable pseudo layers by default */
