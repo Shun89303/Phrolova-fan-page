@@ -14,7 +14,7 @@ body {
 /* Navbar */
 nav {
     position: fixed;
-    top: 0;
+    top: 1rem; /* push down 1rem from top */
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0,0,0,0.7);
